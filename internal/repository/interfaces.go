@@ -48,5 +48,6 @@ type TransactionRepository interface {
 
 	// CreateTransactionWithTx creates a transaction record within a database transaction
 	// Used when recording transactions as part of a larger atomic operation (e.g., during transfers)
-	CreateTransactionWithTx(ctx context.Context, tx *sql.Tx, transaction *models.Transaction) error
+	// Returns the created transaction with the generated ID and timestamp
+	CreateTransactionWithTx(ctx context.Context, tx *sql.Tx, transaction *models.Transaction) (*models.Transaction, error)
 }

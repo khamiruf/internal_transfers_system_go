@@ -15,5 +15,5 @@ type AccountService interface {
 
 // TransactionService defines the interface for transaction-related operations
 type TransactionService interface {
-	CreateTransaction(ctx context.Context, req *dto.CreateTransactionRequest) error
+	CreateTransaction(ctx context.Context, req *dto.CreateTransactionRequest) (*dto.TransactionResponse, error)
 }

@@ -72,12 +72,13 @@ func TestTransactionRepository_CreateTransactionWithTx(t *testing.T) {
 			defer tx.Rollback()
 
 			// Test the WithTx method
-			err = repo.CreateTransactionWithTx(ctx, tx, tt.transaction)
+			createdTx, err := repo.CreateTransactionWithTx(ctx, tx, tt.transaction)
 			if tt.expectedError != nil {
 				assert.Error(t, err)
 				assert.Equal(t, tt.expectedError, err)
 			} else {
 				assert.NoError(t, err)
+				assert.NotNil(t, createdTx)
 				// Commit the transaction to persist changes
 				err = tx.Commit()
 				assert.NoError(t, err)
@@ -122,7 +123,7 @@ func TestTransactionRepository_GetTransactionsByAccount(t *testing.T) {
 		DestinationAccountID: destID,
 		Amount:               decimal.NewFromFloat(100.50),
 	}
-	err = repo.CreateTransactionWithTx(ctx, tx, transaction)
+	_, err = repo.CreateTransactionWithTx(ctx, tx, transaction)
 	assert.NoError(t, err)
 
 	err = tx.Commit()
