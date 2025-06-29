@@ -1,0 +1,48 @@
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose*.yml
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Test files
+*_test.go
+testdata/
+
+# Documentation
+README.md
+*.md
+
+# Scripts (not needed in container)
+scripts/
+
+# Postman collection
+postman/
+
+# Build artifacts
+bin/
+dist/
+
+# Temporary files
+tmp/
+temp/ 

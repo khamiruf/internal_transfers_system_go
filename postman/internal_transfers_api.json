@@ -1,0 +1,117 @@
+{
+    "info": {
+        "_postman_id": "b0e3b0e3-b0e3-b0e3-b0e3-b0e3b0e3b0e3",
+        "name": "Internal Transfers API",
+        "description": "API collection for the Internal Transfers System",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Accounts",
+            "item": [
+                {
+                    "name": "Create Account",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"account_id\": 12345,\n    \"initial_balance\": 1000.50\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/accounts",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "accounts"
+                            ]
+                        },
+                        "description": "Create a new account with initial balance"
+                    }
+                },
+                {
+                    "name": "Get Account",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/accounts/12345",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "accounts",
+                                "12345"
+                            ]
+                        },
+                        "description": "Get account details by account ID"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Transactions",
+            "item": [
+                {
+                    "name": "Create Transaction",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"source_account_id\": 12345,\n    \"destination_account_id\": 67890,\n    \"amount\": 500.75\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/transactions",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "transactions"
+                            ]
+                        },
+                        "description": "Create a new transaction between accounts"
+                    }
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:8080",
+            "type": "string"
+        }
+    ]
+}
